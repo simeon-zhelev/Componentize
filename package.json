@@ -1,0 +1,41 @@
+{
+  "name": "componentize",
+  "version": "1.0.0",
+  "description": "Discover the components hiding in every website through structural and visual section analysis.",
+  "license": "MIT",
+  "keywords": [
+    "website-crawler",
+    "component-analysis",
+    "design-system",
+    "playwright",
+    "perceptual-hashing",
+    "website-audit",
+    "visual-analysis",
+    "web-components"
+  ],
+  "type": "module",
+  "bin": {
+    "componentize": "src/index.js",
+    "crawl-sections": "src/index.js"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "start": "node src/index.js",
+    "serve": "node src/server.js",
+    "check": "node --check src/*.js"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^5.10.0",
+    "pixelmatch": "^6.0.0",
+    "playwright": "^1.61.1",
+    "pngjs": "^7.0.0",
+    "sharp": "^0.33.5"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
