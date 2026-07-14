@@ -26,7 +26,7 @@ function detectBandsInPage(opts) {
 
   const rectOf = (el) => el.getBoundingClientRect();
 
-  // Full-width, tall-enough element children — the candidates to split into.
+  // Full-width, tall-enough element children: the candidates to split into.
   const bandChildren = (el, ratio) =>
     [...el.children].filter((c) => {
       if (c.nodeType !== 1 || !isVisible(c)) return false;

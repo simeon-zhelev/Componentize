@@ -7,7 +7,7 @@ const KEYWORDS = [
   ['Navigation', /\b(navbar|nav-|main-nav|primary-nav|site-nav|menu-|topbar)\b|(^|-)nav(-|$)/],
   ['Header', /\b(site-header|masthead|page-header|top-header)\b|(^|[-_])header([-_]|$)/],
   ['Footer', /\b(site-footer|page-footer|colophon)\b|(^|[-_])footer([-_]|$)/],
-  // E-commerce (class/id based) — checked before generic content categories.
+  // E-commerce (class/id based), checked before generic content categories.
   ['Product gallery', /\b(product-gallery|woocommerce-product-gallery|product-images|product__gallery)\b/],
   ['Product listing', /\b(products|product-grid|product-list|product-loop|woocommerce-products|wc-block-grid|shop-container)\b/],
   ['Product details', /\b(single-product|product-summary|product-details|product-info|product__|entry-summary)\b/],
@@ -90,7 +90,7 @@ function detectCategory(section) {
   if (/\b(warenkorb|basket)\b/.test(hay) || pt === 'cart') return 'Cart';
   if (/\b(checkout|kasse)\b/.test(hay) || pt === 'checkout') return 'Checkout';
   if (e.priceCount >= 2 && m.images >= 2) return 'Product listing';
-  // A priced block on a shop/product page (e.g. the buy box) — beats generic Form.
+  // A priced block on a shop/product page (e.g. the buy box) beats generic Form.
   if (e.priceCount >= 1 && (pt === 'product' || pt === 'shop' || pt === 'category')) {
     return pt === 'product' ? 'Product details' : 'Product';
   }
@@ -128,8 +128,8 @@ export function titleForSection(section) {
   return { title, category };
 }
 
-// A "pure text" section has no images/media, forms, buttons, or prices — just
-// text — and is not a meaningful structural/e-commerce section. These add no
+// A "pure text" section has no images/media, forms, buttons, or prices, just
+// text, and is not a meaningful structural/e-commerce section. These add no
 // visual variety and are filtered out by default.
 export function isPureTextSection(section) {
   const m = section.metrics || {};

@@ -141,7 +141,7 @@ async function bfsCrawl(startUrl, maxPages, browser, log) {
         queue.push(n);
       }
     } catch (e) {
-      log(`  skip (load error): ${url} — ${e.message}`);
+      log(`  skip (load error): ${url} - ${e.message}`);
     } finally {
       await page.close();
     }

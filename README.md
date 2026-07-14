@@ -1,13 +1,51 @@
 # Componentize
 
-> Discover the components hiding in every website.
+Discover the components hiding in every website.
 
-Componentize crawls a website, breaks its pages into horizontal sections, and
-groups visually or structurally similar sections into reusable component
-families. The result is an interactive report of recurring patterns—navigation,
-footers, calls to action, product grids—and sections that are genuinely unique.
+Componentize turns an existing website into a visual component inventory. It
+crawls the site, breaks each page into horizontal sections, and groups sections
+that look or behave alike, from navigation and footers to calls to action,
+product grids, and content modules.
 
-## Features
+Instead of reviewing dozens of pages manually, teams get an interactive map of
+the patterns a website already uses: what repeats, what is inconsistent, and
+what is genuinely unique.
+
+## Why Componentize?
+
+Website redesigns often begin with an incomplete picture. Reusable patterns are
+hidden across pages, one-off layouts are easy to miss, and estimates depend on
+manual audits that take time and are difficult to communicate.
+
+Componentize makes that complexity visible. Its report helps answer:
+
+- Which sections are reused across the website?
+- Where do visually similar components differ structurally?
+- Which layouts are one-offs that may need special design or development work?
+- Where could duplicate patterns be consolidated into a design system?
+- How large and varied is the website before a redesign begins?
+
+## Benefits for agencies and clients
+
+| For agencies | For clients |
+| --- | --- |
+| Faster discovery and design audits | A clear picture of the website’s current complexity |
+| Better-informed redesign estimates and project scope | More transparent budgets and recommendations |
+| A practical starting point for design-system planning | Easier conversations about what should stay, change, or merge |
+| Earlier detection of duplicated and inconsistent patterns | More consistent design and user experience after redesign |
+| A visual artifact that aligns design, development, and strategy | Lower long-term maintenance cost through better reuse |
+
+## Typical use cases
+
+- Pre-redesign website audits
+- Design-system discovery and component inventories
+- Scoping and estimating migration or rebuild projects
+- Comparing recurring sections across large marketing websites
+- Finding inconsistent implementations of similar visual patterns
+- Supporting client workshops with concrete visual evidence
+- Tracking how much of a website is reusable versus page-specific
+
+## Core capabilities
 
 - Sitemap discovery with a same-origin browser-crawl fallback
 - Full-page rendering in headless Chromium, including lazy-loaded content
@@ -17,6 +55,10 @@ footers, calls to action, product grids—and sections that are genuinely unique
 - Interactive, self-contained reports that work offline
 - Web workspace with live crawl progress and recent-report history
 - CLI for scripted and repeatable audits
+
+Componentize is an analysis aid rather than an automatic design-system
+generator. The report gives teams evidence and a shared language; designers and
+developers still decide which patterns should become maintained components.
 
 ## Quick start
 
@@ -65,25 +107,25 @@ When installed as a package, the same command is available as `componentize`.
 
 ## How it works
 
-1. **Discover** — reads `robots.txt` and common sitemap locations, recursively
+1. **Discover** - reads `robots.txt` and common sitemap locations, recursively
    follows sitemap indexes, and falls back to a same-origin breadth-first crawl.
-2. **Extract** — renders every page, triggers lazy content, identifies full-width
+2. **Extract** - renders every page, triggers lazy content, identifies full-width
    horizontal bands, and captures their DOM metadata and screenshots.
-3. **Fingerprint** — builds independent structural and visual signatures for
+3. **Fingerprint** - builds independent structural and visual signatures for
    every retained section.
-4. **Compare** — calculates pairwise HTML and visual similarity scores from
+4. **Compare** - calculates pairwise HTML and visual similarity scores from
    0–100.
-5. **Cluster** — joins sections whose weighted score meets the selected threshold.
-6. **Report** — writes an interactive report that can re-cluster the saved scores
+5. **Cluster** - joins sections whose weighted score meets the selected threshold.
+6. **Report** - writes an interactive report that can re-cluster the saved scores
    instantly as its controls change.
 
 ## Output
 
 Every run creates `output/<domain>-<timestamp>/` with:
 
-- `index.html` — interactive Componentize report
-- `data.json` — section metadata and pairwise similarity matrices
-- `screenshots/` — one image for every retained section
+- `index.html` - interactive Componentize report
+- `data.json` - section metadata and pairwise similarity matrices
+- `screenshots/` - one image for every retained section
 
 The `output/` directory is intentionally ignored by Git because reports can be
 large and may contain content from the audited website.

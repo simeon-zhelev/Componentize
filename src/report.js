@@ -37,7 +37,7 @@ function renderHtml(data) {
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="color-scheme" content="light dark"/>
-<title>Componentize — ${escapeHtml(data.meta.site)}</title>
+<title>Componentize | ${escapeHtml(data.meta.site)}</title>
 <style>
   :root { --bg:#0f1115; --panel:#171a21; --panel2:#1e222b; --border:#2a2f3a; --text:#e7e9ee; --muted:#9aa3b2; --accent:#6ea8fe; --good:#4ade80; --warn:#fbbf24; }
   @media (prefers-color-scheme: light){ :root{ --bg:#f6f7f9; --panel:#fff; --panel2:#f0f2f5; --border:#dfe3ea; --text:#1a1d23; --muted:#5c6472; --accent:#2563eb; } }
@@ -320,7 +320,7 @@ function galleryItem(group, hw, vw){
 }
 
 // Position analysis: find which section is topmost / bottommost on each page
-// (static — does not depend on the threshold).
+// (static and independent of the threshold).
 const firstOnPage={}, lastOnPage={};
 (function(){
   const byPage={};
